@@ -4,8 +4,9 @@ A Python script that automatically downloads YouTube videos and converts them to
 
 ## Features
 
--   Download multiple YouTube videos
--   Automatic conversion to MP3 format
+-   Download multiple YouTube videos at once (batch download)
+-   Paste multiple YouTube links in a single input (even without spaces)
+-   Automatic conversion of videos to high-quality MP3 audio
 -   Input validation for YouTube links and download paths
 -   Error handling for invalid or unavailable videos
 

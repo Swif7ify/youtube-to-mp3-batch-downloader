@@ -3,6 +3,7 @@ import os
 from pytube import YouTube
 from pytube.exceptions import VideoUnavailable
 import yt_dlp
+import re
 
 class YoutubeAutomation:
     def __init__(self):
@@ -14,17 +15,22 @@ class YoutubeAutomation:
             for link in self.yLink:
                 print(f"✅ Youtube Link Listed: {link}")
             return False
-        
-        if input_prompt is not None and not input_prompt.startswith("https://www.youtube.com/watch?v="):
-            print("❌ Invalid YouTube link. Please try again.")
+
+        links = re.findall(r"https://www\.youtube\.com/watch\?v=[\w\-]+", input_prompt)
+        if not links:
+            print("❌ No valid YouTube links found. Please try again.")
             return True
-        
-        if input_prompt is not None and input_prompt.startswith("https://www.youtube.com/watch?v="):
-            if input_prompt in self.yLink:
-                print("❌ This link has already been added.")
-                return True
-            self.yLink.append(input_prompt)
-            return True
+
+        added = 0
+        for link in links:
+            if link not in self.yLink:
+                self.yLink.append(link)
+                added += 1
+            else:
+                print(f"❌ This link has already been added: {link}")
+        if added:
+            print(f"✅ Added {added} new link(s).")
+        return True
     
     def get_download_path(self, input_prompt):
         if input_prompt == "exit":
