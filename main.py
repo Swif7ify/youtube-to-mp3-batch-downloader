@@ -43,21 +43,19 @@ class YoutubeAutomation:
         return self.downloadPath
     
     def check_youtube_link_if_valid(self):
-        temp = []
         for link in self.yLink:
             try:
-                yt = YouTube(link)
-                temp.append(yt)
+                YouTube(link)  
             except VideoUnavailable:
                 print(f"❌ Video unavailable: {link}")
                 return False
             except Exception:
                 print(f"❌ Error processing link: {link}")
                 return False
-        self.yLink = temp
         return True
     
     def download_videos(self):
+        self.check_youtube_link_if_valid()
         if not self.yLink:
             print("No valid YouTube links to download.")
             return False
