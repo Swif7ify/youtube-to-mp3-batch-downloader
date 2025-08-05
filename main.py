@@ -16,7 +16,10 @@ class YoutubeAutomation:
                 print(f"✅ Youtube Link Listed: {link}")
             return False
 
-        links = re.findall(r"https://www\.youtube\.com/watch\?v=[\w\-]+", input_prompt)
+        links = re.findall(
+            r"https://www\.youtube\.com/(?:watch\?v=[\w\-]+|playlist\?list=[\w\-]+)",
+            input_prompt
+        )
         if not links:
             print("❌ No valid YouTube links found. Please try again.")
             return True
@@ -69,7 +72,7 @@ class YoutubeAutomation:
                 'preferredquality': '192',
             }],
             'quiet': False,
-            'noplaylist': True,
+            # 'noplaylist': True, # allow playlist downloads
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:

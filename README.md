@@ -5,6 +5,7 @@ A Python script that automatically downloads YouTube videos and converts them to
 ## Features
 
 -   Download multiple YouTube videos at once (batch download)
+-   Download entire YouTube playlists with a single link
 -   Paste multiple YouTube links in a single input (even without spaces)
 -   Automatic conversion of videos to high-quality MP3 audio
 -   Input validation for YouTube links and download paths
@@ -100,10 +101,11 @@ Enter the download path (or type 'exit' to finish): C:\Users\YourName\Music
 
 ### 3. Add YouTube Links
 
-Enter YouTube video URLs one by one. The script accepts links in this format:
+Enter YouTube video or playlist URLs one by one. The script accepts links in these formats:
 
 ```
 Enter a YouTube link (or type 'exit' to finish): https://www.youtube.com/watch?v=VIDEO_ID
+Enter a YouTube link (or type 'exit' to finish): https://www.youtube.com/playlist?list=PLAYLIST_ID
 ```
 
 Continue adding links, or type `exit` when you're done adding URLs.
@@ -121,13 +123,10 @@ The script will automatically:
 
 ```
 Enter the download path (or type 'exit' to finish): C:\Users\John\Downloads
-Enter a YouTube link (or type 'exit' to finish): https://www.youtube.com/watch?v=dQw4w9WgXcQ
-Enter a YouTube link (or type 'exit' to finish): https://www.youtube.com/watch?v=oHg5SJYRHA0
+Enter a YouTube link (or type 'exit' to finish): https://www.youtube.com/playlist?list=PLt9PB4DPMylXPWaegAgjyuqfICrKJDILy
 Enter a YouTube link (or type 'exit' to finish): exit
-✅ Youtube Link Listed: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-✅ Youtube Link Listed: https://www.youtube.com/watch?v=oHg5SJYRHA0
-Downloaded and converted: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-Downloaded and converted: https://www.youtube.com/watch?v=oHg5SJYRHA0
+✅ Youtube Link Listed: https://www.youtube.com/playlist?list=PLt9PB4DPMylXPWaegAgjyuqfICrKJDILy
+Downloaded and converted: https://www.youtube.com/playlist?list=PLt9PB4DPMylXPWaegAgjyuqfICrKJDILy
 Download completed successfully.
 ```
 
@@ -191,3 +190,7 @@ Feel free to submit issues, fork the repository, and create pull requests for an
 -   Basic YouTube to MP3 conversion
 -   Multiple link support
 -   Error handling and validation
+
+### Version 1.1
+
+-   Added entire playlist download
